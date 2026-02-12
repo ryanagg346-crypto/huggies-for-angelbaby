@@ -1,0 +1,377 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Romantic Color Palette */
+    --background: 340 100% 98%;
+    --foreground: 340 30% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 30% 20%;
+
+    /* Blush Pink Primary */
+    --primary: 340 82% 76%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft Lavender Secondary */
+    --secondary: 270 67% 90%;
+    --secondary-foreground: 340 30% 20%;
+
+    /* Cream/Peach Muted */
+    --muted: 30 67% 94%;
+    --muted-foreground: 340 20% 45%;
+
+    /* Rose Accent */
+    --accent: 350 80% 80%;
+    --accent-foreground: 340 30% 20%;
+
+    /* Coral for highlights */
+    --coral: 16 100% 76%;
+    --coral-foreground: 0 0% 100%;
+
+    /* Gold for special accents */
+    --gold: 43 96% 66%;
+    --gold-foreground: 340 30% 20%;
+
+    /* Lavender */
+    --lavender: 270 67% 85%;
+    --lavender-foreground: 270 30% 20%;
+
+    /* Peach */
+    --peach: 30 100% 90%;
+    --peach-foreground: 30 50% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 40% 90%;
+    --input: 340 40% 90%;
+    --ring: 340 82% 76%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(340, 82%, 76%) 0%, hsl(270, 67%, 85%) 50%, hsl(30, 100%, 90%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(340, 100%, 98%) 0%, hsl(340, 82%, 95%) 50%, hsl(270, 67%, 95%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(340, 82%, 76%) 0%, hsl(350, 80%, 70%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43, 96%, 66%) 0%, hsl(35, 100%, 70%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 30px rgba(255, 182, 193, 0.3);
+    --shadow-glow: 0 0 40px rgba(255, 182, 193, 0.5);
+    --shadow-card: 0 8px 32px rgba(255, 182, 193, 0.2);
+    --shadow-button: 0 4px 20px rgba(255, 105, 135, 0.4);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 340 30% 8%;
+    --foreground: 340 20% 95%;
+
+    --card: 340 30% 12%;
+    --card-foreground: 340 20% 95%;
+
+    --popover: 340 30% 12%;
+    --popover-foreground: 340 20% 95%;
+
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 40% 25%;
+    --secondary-foreground: 270 20% 95%;
+
+    --muted: 340 20% 18%;
+    --muted-foreground: 340 20% 65%;
+
+    --accent: 350 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --coral: 16 80% 60%;
+    --coral-foreground: 0 0% 100%;
+
+    --gold: 43 80% 55%;
+    --gold-foreground: 0 0% 100%;
+
+    --lavender: 270 50% 40%;
+    --lavender-foreground: 270 20% 95%;
+
+    --peach: 30 60% 30%;
+    --peach-foreground: 30 20% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 20% 20%;
+    --input: 340 20% 20%;
+    --ring: 340 82% 65%;
+
+    --gradient-romantic: linear-gradient(135deg, hsl(340, 60%, 35%) 0%, hsl(270, 40%, 30%) 50%, hsl(30, 40%, 25%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(340, 30%, 8%) 0%, hsl(340, 40%, 12%) 50%, hsl(270, 30%, 15%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Dancing Script', cursive;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-text {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-button {
+    background: var(--gradient-button);
+    box-shadow: var(--shadow-button);
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 6px 30px rgba(255, 105, 135, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--gold));
+    border-radius: 50%;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Heart animations */
+  @keyframes float-heart {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-30px) rotate(10deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+    35% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.15);
+    }
+    55% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(255, 182, 193, 0.8);
+    }
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes hug-close {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(-10px) rotate(-5deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+
+  @keyframes hug-close-right {
+    0% {
+      transform: translateX(0) rotate(0deg) scaleX(-1);
+    }
+    50% {
+      transform: translateX(10px) rotate(5deg) scaleX(-1);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg) scaleX(-1);
+    }
+  }
+
+  @keyframes heart-burst {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-float-heart {
+    animation: float-heart 4s ease-in-out infinite;
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-fall {
+    animation: fall linear forwards;
+  }
+
+  .animate-hug-left {
+    animation: hug-close 0.8s ease-in-out;
+  }
+
+  .animate-hug-right {
+    animation: hug-close-right 0.8s ease-in-out;
+  }
+
+  .animate-heart-burst {
+    animation: heart-burst 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 0.7s;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+}
